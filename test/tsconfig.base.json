@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@test/my-lib": ["libs/my-lib/src/index.ts"],
-      "@test/test": ["libs/test/src/index.ts"]
+      "@test/test": ["libs/test/src/index.ts"],
+      "@test/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
