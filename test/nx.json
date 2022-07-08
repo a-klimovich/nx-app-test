@@ -40,5 +40,8 @@
       }
     }
   },
-  "defaultProject": "bookstore"
+  "defaultProject": "bookstore",
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  }
 }

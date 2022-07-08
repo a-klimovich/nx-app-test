@@ -1,42 +1,39 @@
-import { useState, useEffect } from 'react';
-
-interface Todo {
-  title: string;
-}
+import { Link, Route, Routes } from 'react-router-dom';
+import { BooksFeature } from '@test/books/feature';
+import { BooksMain } from '@test/books/main';
+// importing the UI library into our App
+import {
+  GlobalStyles,
+  Header,
+  Main,
+  NavigationItem,
+  NavigationList,
+} from '@test/ui';
 
 export const App = () => {
-  const [todos, setTodos] = useState<Todo[]>([
-    { title: 'Todo 1' },
-    { title: 'Todo 2' },
-  ]);
-
-  useEffect(() => {
-    fetch('/api/todos')
-      .then((_) => _.json())
-      .then(setTodos);
-  }, []);
-
-  function addTodo() {
-    fetch('/api/addTodo', {
-      method: 'POST',
-      body: '',
-    })
-      .then((_) => _.json())
-      .then((newTodo) => {
-        setTodos([...todos, newTodo]);
-      });
-  }
   return (
     <>
-      <h1>Todos</h1>
-      <ul>
-        {todos.map((t) => (
-          <li className={'todo'}>{t.title}</li>
-        ))}
-      </ul>
-      <button id={'add-todo'} onClick={addTodo}>
-        Add Todo
-      </button>
+      <GlobalStyles />
+      <Header>
+        <h1>Bookstore</h1>
+
+        <NavigationList>
+          <NavigationItem>
+            <Link to="/books">Books</Link>
+          </NavigationItem>
+          <NavigationItem>
+            <Link to="/main">BooksMain</Link>
+          </NavigationItem>
+        </NavigationList>
+      </Header>
+
+      <Main>
+        <Routes>
+          <Route path="/books" element={<BooksFeature />} />
+          <Route path="/main" element={<BooksMain />} />
+          <Route path="/" />
+        </Routes>
+      </Main>
     </>
   );
 };

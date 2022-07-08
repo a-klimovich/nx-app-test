@@ -15,6 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@test/books/feature": ["libs/books/feature/src/index.ts"],
+      "@test/books/main": ["libs/books/main/src/index.ts"],
       "@test/my-lib": ["libs/my-lib/src/index.ts"],
       "@test/test": ["libs/test/src/index.ts"],
       "@test/ui": ["libs/ui/src/index.ts"]
